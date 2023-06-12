@@ -1,5 +1,4 @@
 import streamlit as st
-from fast import predict
 import requests
 import json
 
