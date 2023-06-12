@@ -10,7 +10,6 @@ user_post = st.text_input("Enter Text:")
 
 # button uses the fast_predict function to get a prediction
 if st.button("Predict"):
-    response = predict(user_post)
 
     max_val_p = max(response.values())
 

@@ -30,6 +30,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+
 @app.get("/preprocess")
 def preprocess(user_text):
     inputs = str(user_text)
@@ -73,8 +74,7 @@ def predict(
 
     ## 'response' contains dictionary of scores for: 'Supportive(4)', 'Ideation(2)', 'Behavior(1)', 'Attempt(0)', 'Indicator(3)'
 
-
-
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 #uvicorn main:app --reload
+
