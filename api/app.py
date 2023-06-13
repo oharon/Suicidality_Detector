@@ -101,4 +101,4 @@ if st.button("Analyze"):
 
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<br>", unsafe_allow_html=True)  # space
-    st.markdown("<div style='font-size: 20px; color: black;'><strong>This assessment is based on an AI analysis and can not replace a psychiatric or psychological evaluation.</strong></div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size: 20px; color: black;'><strong><em>This assessment is based on an AI analysis and can not replace a psychiatric or psychological evaluation.</em></strong></div>", unsafe_allow_html=True)
