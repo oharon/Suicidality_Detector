@@ -64,23 +64,22 @@ if st.button("Analyze"):
     #st.markdown(user_post)
      # This will add a message "Please wait..."
     with st.empty():
-        with st.write('Please wait...'):
-            with st.spinner('Analyzing...'):
-                time.sleep(5)
+        with st.spinner('Analyzing...'):
+            time.sleep(5)
 
 
-                url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
-                params= {'post': user_post}
-                response = requests.get(url, params=params)
-                results = response.json()[0]
+            url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
+            params= {'post': user_post}
+            response = requests.get(url, params=params)
+            results = response.json()[0]
 
-                max_val = int(results['max_val'])
-                max_val_p = float(results['max_val_p'])
+            max_val = int(results['max_val'])
+            max_val_p = float(results['max_val_p'])
 
-                st.success('Analysis complete')
-                #st.experimental_rerun() # This will clear the "Please wait..." message.
+            st.success('Analysis complete')
+            #st.experimental_rerun() # This will clear the "Please wait..." message.
 
-                prediction = classifier(max_val)
+            prediction = classifier(max_val)
 
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown(f"<h2 style='text-align: center; color: red;'>{prediction['max_val']}</h2>", unsafe_allow_html=True)
