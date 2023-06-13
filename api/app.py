@@ -3,18 +3,20 @@ import requests
 import json
 import time
 
-# Define the custom styles
-custom_css = """
-<style>
-body {
-background-image: url("https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg");
-background-size: cover;
+# Function to convert image to base64
+def get_image_b64_string(img_path):
+    with open(img_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
+CSS = """
+h1 {
+    color: white;
 }
-</style>
+.stApp {
+    background-image: url(https://images.unsplash.com/flagged/photo-1568411541886-4b008aa0a5c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
+    background-size: cover;
+}
 """
-
-# Inject the custom CSS
-st.markdown(custom_css, unsafe_allow_html=True)
+st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 st.title('Suicidality Detector')
 #WALLPAPER CODE ENDS
