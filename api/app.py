@@ -83,11 +83,8 @@ if st.button("Analyze"):
             prediction = classifier(max_val)
 
     st.markdown("<br>", unsafe_allow_html=True)  # space
-    st.markdown("<br>", unsafe_allow_html=True)  # space
-    st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown(f"<h2 style='text-align: center; color: red;'><strong>{prediction['max_val']}</strong></h2>", unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown(f"<div style='font-size: 20px; color: black; '><strong>{prediction['explanation']}</strong></div>", unsafe_allow_html=True)
@@ -96,15 +93,12 @@ if st.button("Analyze"):
         if prediction['max_val'] in ['Ideation', 'Indicator']:
             st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown("<br>", unsafe_allow_html=True)  # space
-            st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown(f"<div style='font-size: 20px; color: black;'><strong>{prediction['recommendation']}</strong></div>", unsafe_allow_html=True)
         else:
             st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown("<br>", unsafe_allow_html=True)  # space
-            st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown(f"<div style='font-size: 20px; color: red;'><strong>{prediction['recommendation']}</strong></div>", unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown("<div style='font-size: 20px; color: black;'><strong>DISCLAIMER: <em>This assessment is based on an AI analysis and cannot replace a psychiatric/psychological evaluation.</strong></div>", unsafe_allow_html=True)
