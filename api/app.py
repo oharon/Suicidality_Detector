@@ -1,12 +1,7 @@
 import streamlit as st
-from fast import predict
 import requests
 import json
 import time
-
-
-#WALLPAPER
-import streamlit as st
 
 # Define the custom styles
 custom_css = """
