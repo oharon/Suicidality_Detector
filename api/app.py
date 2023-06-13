@@ -18,8 +18,8 @@ h1 {
 """
 st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
-# st.title('Suicidality Detector')
-st.title(f"<div style='font-size: 60px; color: White; '><strong>'Suicidality Detector'</strong></div>", unsafe_allow_html=True)
+st.title('Suicidality Detector')
+st.markdown(f"<div style='font-size: 60px; color: White; '><strong>'Suicidality Detector'</strong></div>", unsafe_allow_html=True)
 
 #WALLPAPER CODE ENDS
 
