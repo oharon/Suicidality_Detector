@@ -17,7 +17,7 @@ h1 {
 }
 """
 
-st.title(Suicidality Detector')
+st.title('Suicidality Detector')
 # st.title(f"<div style='font-size: 60px; color: White; '><strong>'Suicidality Detector'</strong></div>", unsafe_allow_html=True)
 
 #WALLPAPER CODE ENDS
