@@ -13,7 +13,7 @@ if st.button("Predict"):
     url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
     params= {'post': user_post}
     response = requests.get(url, params=params)
-    results = response.json()[0]
+    results = response.json()
 
     max_val = int(results['max_val'])
     max_val_p = float(results['max_val_p'])
