@@ -3,20 +3,34 @@ import requests
 import json
 import time
 
-# Function to convert image to base64
-def get_image_b64_string(img_path):
-    with open(img_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode('utf-8')
-CSS = """
-h1 {
-    color: white;
+# Define the custom styles
+custom_css = """
+<style>
+body {
+background-image: url("https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg");
+background-size: cover;
 }
-.stApp {
-    background-image: url(https://images.unsplash.com/flagged/photo-1568411541886-4b008aa0a5c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
-    background-size: cover;
+.highlight {
+  border-radius: 0.4rem;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
+.bold {
+  padding-left: 1rem;
+  font-weight: 700;
+}
+.blue {
+  background-color: lightcoral;
+}
+.red {
+  background-color: lightblue;
+}
+</style>
 """
-st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
+
+# Inject the custom CSS
+st.markdown(custom_css, unsafe_allow_html=True)
 
 st.title('Suicidality Detector')
 #WALLPAPER CODE ENDS
@@ -69,7 +83,6 @@ if st.button("Analyze"):
         with st.spinner('Analyzing...'):
             time.sleep(5)
 
-
             url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
             params= {'post': user_post}
             response = requests.get(url, params=params)
@@ -92,7 +105,7 @@ if st.button("Analyze"):
     if prediction['recommendation']:
         if prediction['max_val'] in ['Ideation', 'Indicator']:
             st.markdown("<br>", unsafe_allow_html=True)  # space
-            st.markdown(f"<div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
+            st.markdown(f"<span class='highlight blue'><div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</span></div>", unsafe_allow_html=True)
         else:
             st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown(f"<div style='font-size: 16px; color: red;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
