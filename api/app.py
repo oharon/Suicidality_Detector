@@ -10,7 +10,7 @@ user_post = st.text_input("Enter Text:")
 # button uses the fast_predict function to get a prediction
 if st.button("Predict"):
     st.markdown(user_post)
-    url = 'http://localhost:8000/predict'  # uvicorn web server url
+    url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
     params= {'post': user_post}
     results = requests.get(url, params=params).json()[0]
     
