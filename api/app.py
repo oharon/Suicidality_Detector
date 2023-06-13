@@ -12,10 +12,11 @@ h1 {
     color: white;
 }
 .stApp {
-    background-image: url(https://images.unsplash.com/photo-1566321343730-237ec35e53f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80);
+    background-image: url(https://images.unsplash.com/flagged/photo-1568411541886-4b008aa0a5c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
     background-size: cover;
 }
 """
+st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
 
 st.title('Suicidality Detector')
 # st.title(f"<div style='font-size: 60px; color: White; '><strong>'Suicidality Detector'</strong></div>", unsafe_allow_html=True)
