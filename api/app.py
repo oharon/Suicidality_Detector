@@ -10,22 +10,6 @@ body {
 background-image: url("https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg");
 background-size: cover;
 }
-.highlight {
-  border-radius: 0.4rem;
-  color: white;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-}
-.bold {
-  padding-left: 1rem;
-  font-weight: 700;
-}
-.blue {
-  background-color: lightcoral;
-}
-.red {
-  background-color: lightblue;
-}
 </style>
 """
 
@@ -105,7 +89,7 @@ if st.button("Analyze"):
     if prediction['recommendation']:
         if prediction['max_val'] in ['Ideation', 'Indicator']:
             st.markdown("<br>", unsafe_allow_html=True)  # space
-            st.markdown(f"<span class='highlight blue'><div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</span></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
         else:
             st.markdown("<br>", unsafe_allow_html=True)  # space
             st.markdown(f"<div style='font-size: 16px; color: red;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
