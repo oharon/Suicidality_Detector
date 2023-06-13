@@ -62,10 +62,9 @@ def classifier(max_val):
 # button uses the fast_predict function to get a prediction
 if st.button("Analyze"):
     #st.markdown(user_post)
-    st.info('Please wait...').empty() # This will add a message "Please wait..."
     with st.spinner('Analyzing...'):
-        time.sleep(5)
-
+        with st.info('Please wait...'):
+            time.sleep(5)
 
         url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
         params= {'post': user_post}
