@@ -14,6 +14,7 @@ if st.button("Predict"):
     params= {'post': user_post}
     response = requests.get(url, params=params)
     results = response.json()
+    print(results)
 
     max_val = int(results['max_val'])
     max_val_p = float(results['max_val_p'])
