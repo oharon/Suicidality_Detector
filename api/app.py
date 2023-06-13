@@ -62,36 +62,39 @@ def classifier(max_val):
 # button uses the fast_predict function to get a prediction
 if st.button("Analyze"):
     #st.markdown(user_post)
-    with st.spinner('Analyzing...'):
-        with st.info('Please wait...'):
+     # This will add a message "Please wait..."
+    with st.empty():
+        st.info('Please wait...')
+        with st.spinner('Analyzing...'):
             time.sleep(5)
 
-        url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
-        params= {'post': user_post}
-        response = requests.get(url, params=params)
-        results = response.json()[0]
 
-        max_val = int(results['max_val'])
-        max_val_p = float(results['max_val_p'])
+            url = 'https://suicidalitydetector-vgublbx6qq-ew.a.run.app/predict'  # uvicorn web server url
+            params= {'post': user_post}
+            response = requests.get(url, params=params)
+            results = response.json()[0]
 
-        st.success('Analysis complete')
-        #st.experimental_rerun() # This will clear the "Please wait..." message.
+            max_val = int(results['max_val'])
+            max_val_p = float(results['max_val_p'])
 
-        prediction = classifier(max_val)
+            st.success('Analysis complete')
+            #st.experimental_rerun() # This will clear the "Please wait..." message.
 
-        st.markdown("<br>", unsafe_allow_html=True)  # space
-        st.markdown(f"<h2 style='text-align: center; color: red;'>{prediction['max_val']}</h2>", unsafe_allow_html=True)
+            prediction = classifier(max_val)
 
-        st.markdown("<br>", unsafe_allow_html=True)  # space
-        st.markdown(f"<div style='font-size: 16px; color: #FFCCBC; '>{prediction['explanation']}</div>", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)  # space
+            st.markdown(f"<h2 style='text-align: center; color: red;'>{prediction['max_val']}</h2>", unsafe_allow_html=True)
 
-        if prediction['recommendation']:
-            if prediction['max_val'] in ['Ideation', 'Indicator']:
-                st.markdown("<br>", unsafe_allow_html=True)  # space
-                st.markdown(f"<div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
-            else:
-                st.markdown("<br>", unsafe_allow_html=True)  # space
-                st.markdown(f"<div style='font-size: 16px; color: red;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)  # space
+            st.markdown(f"<div style='font-size: 16px; color: #FFCCBC; '>{prediction['explanation']}</div>", unsafe_allow_html=True)
 
-        st.markdown("<br>", unsafe_allow_html=True)  # space
-        st.markdown("<div style='font-size: 16px; color: brown;'><strong>DISCLAIMER:</strong> <em>This assessment is based on an AI analysis and cannot replace a psychiatric/psychological evaluation.</div>", unsafe_allow_html=True)
+            if prediction['recommendation']:
+                if prediction['max_val'] in ['Ideation', 'Indicator']:
+                    st.markdown("<br>", unsafe_allow_html=True)  # space
+                    st.markdown(f"<div style='font-size: 16px; color: Beige;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
+                else:
+                    st.markdown("<br>", unsafe_allow_html=True)  # space
+                    st.markdown(f"<div style='font-size: 16px; color: red;'>{prediction['recommendation']}</div>", unsafe_allow_html=True)
+
+            st.markdown("<br>", unsafe_allow_html=True)  # space
+            st.markdown("<div style='font-size: 16px; color: brown;'><strong>DISCLAIMER:</strong> <em>This assessment is based on an AI analysis and cannot replace a psychiatric/psychological evaluation.</div>", unsafe_allow_html=True)
