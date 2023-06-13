@@ -82,7 +82,7 @@ if st.button("Analyze"):
 
             prediction = classifier(max_val)
 
-    st.markdown(f"<h2 style='font-size: 30px; text-align: center; color: red;'><strong>{prediction['max_val']}</strong></h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='font-size: 50px; text-align: center; color: red;'><strong>{prediction['max_val']}</strong></h2>", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)  # space
     st.markdown(f"<div style='font-size: 20px; color: black; '><strong>{prediction['explanation']}</strong></div>", unsafe_allow_html=True)
