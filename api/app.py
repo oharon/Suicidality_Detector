@@ -64,7 +64,7 @@ if st.button("Analyze"):
     #st.markdown(user_post)
      # This will add a message "Please wait..."
     with st.empty():
-        with st.info('Please wait...'):
+        with st.write('Please wait...'):
             with st.spinner('Analyzing...'):
                 time.sleep(5)
 
