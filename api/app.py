@@ -39,24 +39,24 @@ def classifier(max_val):
         return {'max_val' : 'Ideation',
                 'probability' : max_val_p,
                 'explanation' : 'This text contains thoughts about suicide, ranging from passing considerations to detailed plans',
-                'recommendation' : 'There is some risk that the author of this text may commit suicide. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
+                'recommendation' : 'Recommendation : There is some risk that the author of this text may commit suicide. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
 
     elif max_val == 1:
         return {'max_val' : 'Behavior',
                 'probability' : max_val_p,
-                'explanation' : 'This text reports actions that are related to suicide but do not constitute an actual attempt, such as preparing to commit suicide.', 'recommendation' : 'The risk that the author of this text will commit suicide is considered high. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
+                'explanation' : 'Recommendation : This text reports actions that are related to suicide but do not constitute an actual attempt, such as preparing to commit suicide.', 'recommendation' : 'The risk that the author of this text will commit suicide is considered high. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
 
     elif max_val == 0:
         return {'max_val' : 'Attempt',
                 'probability' : max_val_p,
                 'explanation' : 'This text reports a suicide attempt, that is, a specific act with the intention of dying in the process.',
-                'recommendation' : 'The risk that the author of this text will commit suicide is considered high. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
+                'recommendation' : 'Recommendation : The risk that the author of this text will commit suicide is considered high. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
 
     elif max_val == 3:
         return {'max_val' : 'Indicator',
                 'probability' : max_val_p,
                 'explanation' : 'This text indicates a potential suicide risk without specifically mentioning suicide.',
-                'recommendation' : 'There is some risk that the author of this text may commit suicide. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
+                'recommendation' : 'Recommendation : There is some risk that the author of this text may commit suicide. If you have the opportunity to contact this person, please offer help and refer to local emergency calls or ambulances.'}
     else:
         return {'max_val' : 'error', 'probability' : 'error', 'explanation' : 'error'}
 
