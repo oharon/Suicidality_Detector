@@ -3,15 +3,10 @@ from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from ml_logic.data import preprocessing
 from params import *
-from pydantic import BaseModel
-from transformers import TFDistilBertForSequenceClassification, TFRobertaForSequenceClassification
+from transformers import TFRobertaForSequenceClassification
 import json
 from pathlib import Path
 import os
-
-class Item(BaseModel):
-    category: str
-    proba: float
 
 app = FastAPI()
 
