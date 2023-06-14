@@ -6,16 +6,22 @@ import time
 def get_image_b64_string(img_path):
     with open(img_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
+
+
 CSS = """
-h1 {
+body {
     color: white;
 }
 .stApp {
-    background-image: url(https://images.unsplash.com/photo-1566321343730-237ec35e53f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80);
-    background-size: cover;
-}
+    background-image:  url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kaka[…]Fdn%2FoyTFx%2FbtsjZ9JShbN%2F0sDGTMi0lMEJCvVk7FxVA0%2Fimg.png),url(https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixlib=rb-4.0.3&ixid=M3wxM[…]dlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80);
+    background-size: 335px, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: right bottom, left top;
+    }
 """
 st.write(f'<style>{CSS}</style>', unsafe_allow_html=True)
+
+
 # st.title('Suicidality Detector')
 st.markdown(f"<div style='font-size: 60px; color: White; '><strong>Suicidality Detector</strong></div>", unsafe_allow_html=True)
 #WALLPAPER CODE ENDS
